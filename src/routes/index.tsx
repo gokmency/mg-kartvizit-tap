@@ -1,18 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  MessageCircle,
   Phone,
   PhoneCall,
   Globe,
-  Instagram,
-  MapPin,
+  Mail,
   UserPlus,
   ChevronRight,
   Flame,
   Snowflake,
 } from "lucide-react";
-import logoAsset from "@/assets/mg-logo.png.asset.json";
-import backgroundAsset from "@/assets/mg-background.png.asset.json";
+import {
+  WhatsAppIcon,
+  InstagramIcon,
+  GoogleMapsIcon,
+} from "@/components/BrandIcons";
+import logoAsset from "@/assets/mg-logo.png";
+import backgroundAsset from "@/assets/mg-background.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,17 +47,17 @@ type Action = {
   label: string;
   detail: string;
   href: string;
-  icon: typeof Phone;
-  tone: "whatsapp" | "heat" | "cold" | "neutral";
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  tone: "whatsapp" | "heat" | "cold" | "instagram" | "maps" | "neutral";
   external?: boolean;
 };
 
 const actions: Action[] = [
   {
     label: "WhatsApp",
-    detail: "Mesaj gönderin",
+    detail: "Hızlı mesaj gönderin",
     href: "https://wa.me/905365043067",
-    icon: MessageCircle,
+    icon: WhatsAppIcon,
     tone: "whatsapp",
     external: true,
   },
@@ -73,6 +76,14 @@ const actions: Action[] = [
     tone: "cold",
   },
   {
+    label: "Instagram",
+    detail: "@mg.iklimlendirme",
+    href: "https://instagram.com/mg.iklimlendirme",
+    icon: InstagramIcon,
+    tone: "instagram",
+    external: true,
+  },
+  {
     label: "Web Sitesi",
     detail: "mgiklimlendirme.com",
     href: "https://mgiklimlendirme.com",
@@ -81,28 +92,30 @@ const actions: Action[] = [
     external: true,
   },
   {
-    label: "Instagram",
-    detail: "@mg.iklimlendirme",
-    href: "https://instagram.com/mg.iklimlendirme",
-    icon: Instagram,
+    label: "E-Posta",
+    detail: "info@mgiklimlendirme.com",
+    href: "mailto:info@mgiklimlendirme.com",
+    icon: Mail,
     tone: "neutral",
-    external: true,
   },
   {
     label: "Yol Tarifi Al",
-    detail: "Haritada aç",
+    detail: "Google Haritalar'da aç",
     href: "https://www.google.com/maps/dir/?api=1&destination=MG+%C4%B0klimlendirme",
-    icon: MapPin,
-    tone: "neutral",
+    icon: GoogleMapsIcon,
+    tone: "maps",
     external: true,
   },
 ];
 
 const toneIcon: Record<Action["tone"], string> = {
-  whatsapp: "bg-[oklch(0.62_0.17_155)]/12 text-[oklch(0.5_0.14_155)]",
-  heat: "bg-heat/10 text-heat",
-  cold: "bg-cold/10 text-cold",
-  neutral: "bg-primary/8 text-primary",
+  whatsapp: "bg-[#25D366] text-white shadow-md shadow-[#25D366]/25",
+  instagram:
+    "bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white shadow-md shadow-[#dc2743]/25",
+  maps: "bg-white text-foreground ring-1 ring-slate-200 dark:ring-slate-800 shadow-md shadow-slate-200/50 p-2",
+  heat: "bg-heat text-white shadow-md shadow-heat/25",
+  cold: "bg-cold text-white shadow-md shadow-cold/25",
+  neutral: "bg-navy-deep text-white shadow-md shadow-navy-deep/25",
 };
 
 function downloadVCard() {
@@ -136,7 +149,7 @@ function Index() {
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center opacity-50"
-        style={{ backgroundImage: `url(${backgroundAsset.url})` }}
+        style={{ backgroundImage: `url(${backgroundAsset})` }}
       />
 
       {/* Ambient hot-cold glows */}
@@ -168,7 +181,7 @@ function Index() {
           <div className="relative animate-rise">
             <div className="mx-auto flex size-28 items-center justify-center rounded-3xl bg-card p-3 shadow-[0_16px_40px_-12px_oklch(0.1_0.05_260/0.5)] ring-1 ring-card/40">
               <img
-                src={logoAsset.url}
+                src={logoAsset}
                 alt="MG İklimlendirme logosu"
                 className="h-full w-full object-contain"
               />
@@ -206,7 +219,10 @@ function Index() {
               <span
                 className={`flex size-12 shrink-0 items-center justify-center rounded-xl transition-transform duration-200 group-active:scale-95 ${toneIcon[a.tone]}`}
               >
-                <a.icon className="size-5" strokeWidth={2.2} />
+                <a.icon
+                  className={a.tone === "maps" ? "h-6 w-auto" : "size-5"}
+                  strokeWidth={2.2}
+                />
               </span>
               <span className="flex min-w-0 flex-1 flex-col">
                 <span className="text-[15px] font-bold leading-tight">{a.label}</span>

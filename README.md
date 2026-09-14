@@ -1,26 +1,68 @@
-# MG Connect
+# MG İklimlendirme — Dijital Kartvizit (NFC Tap)
 
-Create a premium mobile-first NFC digital business card for “MG İklimlendirme – Isıtma Soğutma Sistemleri”. Use the provided MG logo and its red/blue hot-cold identity, with a clean white/dark-navy modern UI, subtle gradients, rounded cards and smooth micro-animations. Hero: logo, “MG İklimlendirme”, subtitle “Isıtma • Soğutma • İklimlendirme Sistemleri”. Add large tap-friendly actions: WhatsApp (+905365043067), Call Mobile (+905365043067), Call Office (02424105507), Website (https://mgiklimlendirme.com), Instagram (https://instagram.com/mg.iklimlendirme), Email (info@mgiklimlendirme.com), and “Rehbere Kaydet” vCard download. Single-page, extremely fast, responsive, polished, minimal and designed primarily for phones opened via NFC. Turkish only. Avoid generic HVAC stock-site appearance.
+**MG İklimlendirme (Isıtma & Soğutma Sistemleri)** için özel olarak tasarlanmış, mobil öncelikli (mobile-first), NFC ve QR kod ile tek dokunuşta açılabilen modern dijital kartvizit web uygulaması.
 
-türkçe olmalı site.
+---
 
-This project was built with [Lovable](https://lovable.dev).
+## Özellikler
 
-## Build with Lovable
+- **Mobil Öncelikli & Ultra Hızlı**: Telefonlarda NFC kart veya QR okutulduğunda anında yüklenen optimize edilmiş tek sayfa deneyimi.
+- **Orijinal Marka İkonları**:
+  - **WhatsApp**: Tek tıkla hızlı mesaj başlatma (`#25D366` resmi yeşil ikon).
+  - **Instagram**: Resmi renk geçişli degrade kamera ikonu ile profile doğrudan erişim.
+  - **Google Haritalar**: Orijinal 4 renkli Google Maps iğnesi ile ofise tek tıkla yol tarifi.
+  - **Doğrudan Arama**: Mobil cep telefonu ve ofis sabit hattı için hızlı arama butonları.
+  - **Web & E-Posta**: Kurumsal web sitesi ve doğrudan e-posta gönderme bağlantıları.
+- **Rehbere Kaydet (vCard - .vcf)**: Tek dokunuşla tüm iletişim bilgilerini akıllı telefon rehberine indirme ve ekleme.
+- **Kurumsal Tasarım**: MG İklimlendirme kırmızı (ısıtma) ve mavi (soğutma) dinamik renk paleti, koyu lacivert tonları, zarif kartlar ve akıcı mikro-animasyonlar.
+- **Tamamen Bağımsız & Yerel**: Harici SaaS veya servis sağlayıcı bağımlılığı olmaksızın kendi sunucunuzda veya Cloudflare/Vercel üzerinde barındırılabilir.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/ffd7bd7b-af17-4eb8-9e7b-121737b45d40).
+---
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+## Kullanılan Teknolojiler
 
-## Development
+- **Framework**: [TanStack Start](https://tanstack.com/start) (Full-stack React)
+- **UI Kütüphanesi**: React 19
+- **Stil & CSS**: Tailwind CSS v4
+- **İkonlar**: Resmi Marka Vektörleri & Lucide Icons
+- **Sunucu & Dağıtım**: Nitro / Vite
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+---
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+## Kurulum ve Yerel Çalıştırma
+
+Projeyi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyin:
+
+### Gereksinimler
+- Node.js (v20 veya üzeri)
+- npm, pnpm veya bun
+
+### 1. Bağımlılıkları Yükleyin
+```bash
+npm install
+```
+
+### 2. Geliştirme Sunucusunu Başlatın
+```bash
 npm run dev
 ```
+
+Tarayıcınızda açın:
+```
+http://localhost:3000
+```
+*(veya terminalde belirtilen port)*
+
+### 3. Canlı / Üretim Sürümü (Build)
+```bash
+npm run build
+npm run preview
+```
+
+---
+
+## Lisans ve Haklar
+
+Bu proje **MG İklimlendirme** adına hazırlanmıştır.  
+Tasarım & Geliştirme: [Grainz Digital](https://grainzdigital.com)
+
