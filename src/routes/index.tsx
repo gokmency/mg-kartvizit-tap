@@ -132,6 +132,13 @@ function downloadVCard() {
 function Index() {
   return (
     <main className="relative min-h-dvh overflow-hidden">
+      {/* Subtle hot-cold background */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center opacity-[0.08]"
+        style={{ backgroundImage: `url(${backgroundAsset.url})` }}
+      />
+
       {/* Ambient hot-cold glows */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute -top-24 -left-24 size-72 rounded-full bg-heat/15 blur-3xl animate-glow-drift" />
