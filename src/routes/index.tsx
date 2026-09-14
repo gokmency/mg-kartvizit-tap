@@ -135,7 +135,7 @@ function Index() {
       {/* Subtle hot-cold background */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center opacity-[0.08]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center opacity-10"
         style={{ backgroundImage: `url(${backgroundAsset.url})` }}
       />
 
