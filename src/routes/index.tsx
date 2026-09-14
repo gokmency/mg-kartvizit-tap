@@ -5,7 +5,7 @@ import {
   PhoneCall,
   Globe,
   Instagram,
-  Mail,
+  MapPin,
   UserPlus,
   ChevronRight,
   Flame,
@@ -88,11 +88,12 @@ const actions: Action[] = [
     external: true,
   },
   {
-    label: "E-posta",
-    detail: "info@mgiklimlendirme.com",
-    href: "mailto:info@mgiklimlendirme.com",
-    icon: Mail,
+    label: "Yol Tarifi Al",
+    detail: "Haritada aç",
+    href: "https://www.google.com/maps/dir/?api=1&destination=MG+%C4%B0klimlendirme",
+    icon: MapPin,
     tone: "neutral",
+    external: true,
   },
 ];
 
@@ -225,7 +226,15 @@ function Index() {
           className="mt-8 text-center text-[11px] text-muted-foreground animate-rise"
           style={{ animationDelay: "700ms" }}
         >
-          MG İklimlendirme © {new Date().getFullYear()} — Dijital Kartvizit
+          MG İklimlendirme © {new Date().getFullYear()} —{" "}
+          <a
+            href="https://grainzdigital.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-foreground/70 underline-offset-4 hover:underline"
+          >
+            Grainz Digital
+          </a>
         </footer>
       </div>
     </main>
