@@ -12,6 +12,7 @@ import {
   Snowflake,
 } from "lucide-react";
 import logoAsset from "@/assets/mg-logo.png.asset.json";
+import backgroundAsset from "@/assets/mg-background.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
