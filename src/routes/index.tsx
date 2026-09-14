@@ -12,6 +12,7 @@ import {
   Snowflake,
 } from "lucide-react";
 import logoAsset from "@/assets/mg-logo.png.asset.json";
+import backgroundAsset from "@/assets/mg-background.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -131,6 +132,13 @@ function downloadVCard() {
 function Index() {
   return (
     <main className="relative min-h-dvh overflow-hidden">
+      {/* Subtle hot-cold background */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center opacity-10"
+        style={{ backgroundImage: `url(${backgroundAsset.url})` }}
+      />
+
       {/* Ambient hot-cold glows */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute -top-24 -left-24 size-72 rounded-full bg-heat/15 blur-3xl animate-glow-drift" />
